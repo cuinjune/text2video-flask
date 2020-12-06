@@ -3,4 +3,3 @@ gevent
 python-decouple
 python-pixabay
 spacy
-https://github.com/explosion/spacy-models/archive/en_core_web_md-3.0.0a0.tar.gz#egg=en_core_web_md
