@@ -3,4 +3,3 @@ gevent
 python-decouple
 python-pixabay
 spacy
-./en_core_web_md-3.0.0a0.tar.gz
