@@ -15,7 +15,7 @@ PIXABAY_API_AUTH_KEY = os.environ.get(
 
 video = Video(PIXABAY_API_AUTH_KEY)
 image = Image(PIXABAY_API_AUTH_KEY)
-nlp = spacy.load("en_core_web_md")
+nlp = spacy.load("en_core_web_sm")
 
 def get_keywords(text):
     result = []
