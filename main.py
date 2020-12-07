@@ -79,7 +79,7 @@ def get_updated_data(data):
         sentence["url"] = url
     return data
 
-@app.route("/api/v1/flask/data", methods=["POST"])
+@app.route("/", methods=["POST"])
 def postdata():
     data = request.get_json()
     data = get_updated_data(data)
