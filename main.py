@@ -14,7 +14,7 @@ def get_keywords(text):
     doc = nlp(text)
     entities = [e.text for e in list(doc.ents) if e.label_ in ["PERSON", "NORP", "FAC", "ORG", "GPE", "LOC", "PRODUCT", "EVENT"]]
     words = [w.text for w in list(doc) if w.is_alpha and not w.is_stop and not w.is_punct and w.tag_ in ["NN", "NNS", "NNP", "NNPS", "VB", "VBD", "VBG", "VBP", "VBZ", "AFX", "JJ"]]
-    return  words + entities
+    return entities + words
 
 # keywords test mode (by passing a sentence as arguments)
 if len(sys.argv) > 1:
