@@ -40,7 +40,7 @@ def get_updated_data(data):
     for sentence in data["sentences"]:
         # per sentence
         min_duration = sentence["time"] / 1000
-        max_duration = 60
+        max_duration = min(min_duration + 30, 60)
         keywords = get_keywords(sentence["value"]) or [sentence["value"]]
         doc_keywords = nlp(" ".join(keywords)) # used for similarity
         keywords = [k[0] for k in Counter(keywords).most_common(5)] # keywords to search in order
