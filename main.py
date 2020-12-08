@@ -43,7 +43,7 @@ def get_updated_data(data):
         max_duration = 60
         keywords = get_keywords(sentence["value"]) or [sentence["value"]]
         doc_keywords = nlp(" ".join(keywords)) # used for similarity
-        keywords = [k[0] for k in Counter(keywords).most_common(5)] # keywords to search in order
+        keywords = [k[0] for k in Counter(keywords).most_common(3)] # keywords to search in order
         print("sentence:", sentence["value"], "\nkeywords", keywords)
         id_ = 0
         url = ""
@@ -57,7 +57,7 @@ def get_updated_data(data):
                     if similarity > max_similarity:
                         max_similarity = similarity
                         max_hit = hit
-            if max_similarity > 0.75 and max_hit:
+            if max_similarity > 0.5 and max_hit:
                 id_ = max_hit["id"]
                 video_ids.add(id_);
                 url = max_hit["videos"]["medium"]["url"]
@@ -73,7 +73,7 @@ def get_updated_data(data):
                         if similarity > max_similarity:
                             max_similarity = similarity
                             max_hit = hit
-                if max_similarity > 0.75 and max_hit:
+                if max_similarity > 0.5 and max_hit:
                     id_ = max_hit["id"]
                     image_ids.add(id_);
                     url = max_hit["webformatURL"]
