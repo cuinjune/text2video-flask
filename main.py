@@ -14,7 +14,7 @@ def get_keywords(text):
     doc = nlp(text)
     entities = [e.text for e in list(doc.ents) if e.label_ in ["PERSON", "NORP", "FAC", "ORG", "GPE", "LOC", "PRODUCT", "EVENT"]]
     words = [w.text for w in list(doc) if w.is_alpha and not w.is_stop and not w.is_punct and w.tag_ in ["NN", "NNS", "NNP", "NNPS", "VB", "VBD", "VBG", "VBP", "VBZ", "AFX", "JJ"]]
-    return entities + words
+    return  words + entities
 
 # keywords test mode (by passing a sentence as arguments)
 if len(sys.argv) > 1:
@@ -43,7 +43,7 @@ def get_updated_data(data):
         max_duration = 60
         keywords = get_keywords(sentence["value"]) or [sentence["value"]]
         doc_keywords = nlp(" ".join(keywords)) # used for similarity
-        keywords = [k[0] for k in Counter(keywords).most_common(3)] # keywords to search in order
+        keywords = [k[0] for k in Counter(keywords).most_common(5)] # keywords to search in order
         print("sentence:", sentence["value"], "\nkeywords", keywords)
         id_ = 0
         url = ""
