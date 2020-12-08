@@ -35,7 +35,7 @@ image = Image(PIXABAY_API_AUTH_KEY)
 
 def get_updated_data(data):
     # avoid using repeated or cors blocked contents
-    video_ids = set([15333])
+    video_ids = set([15333, 6183])
     image_ids = set()
     for sentence in data["sentences"]:
         # per sentence
